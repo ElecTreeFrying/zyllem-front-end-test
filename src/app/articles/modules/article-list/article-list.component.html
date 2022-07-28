@@ -1,0 +1,12 @@
+<div id="article-list">
+  <div class="articles" [ngClass]="{ loaded: loaded }">
+    <ng-container *ngIf="!loaded">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </ng-container>
+    <ng-template
+      articles
+      [articles$]="zyllemApi.articles$ | articleFilter"
+      (loaded)="loaded = true">
+    </ng-template>
+  </div>
+</div>

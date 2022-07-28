@@ -6,16 +6,38 @@
     />
   </div>
 
-  <h2>Articles</h2>
-  <h3>List of article goes here:</h3>
+  <ng-container *ngIf="isArticleList">
+    <h2 [@opacityFadeIn]>Articles</h2>
+    <h3 [@opacityFadeIn]>List of article goes here:</h3>
+  </ng-container>
+
+  <div class="button-list">
+    <ng-container *ngIf="isArticleList;else articlePage">
+      <button color="primary" mat-raised-button (click)="articleStore.setToAll()" [@opacityFadeIn]>
+        Show All
+      </button>
+      <button color="primary" mat-raised-button (click)="articleStore.setToNormal()" [@opacityFadeIn]>
+        Normal
+      </button>
+      <button color="primary" mat-raised-button (click)="articleStore.setToFeatured()" [@opacityFadeIn]>
+        Featured
+      </button>
+    </ng-container>
+    <ng-template #articlePage>
+      <button color="primary" mat-raised-button routerLink="/" [@opacityFadeIn]>Home</button>
+    </ng-template>
+  </div>
 
   <!-- To put the articles inside this container -->
-  <div class="article-container">
-    <!-- Feel free to remove this holder -->
-    <div class="article-list-holder" style="height: 20vh">
+  <div
+    class="article-container"
+    [ngClass]="{ list: isArticleList }">
 
-    </div>
+    <router-outlet></router-outlet>
+
   </div><!--.article-container-->
+
+  <div class="spacer"></div>
   
   <div class="bonus-point-container">
     <h3>Bonus Points:</h3>

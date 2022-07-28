@@ -1,0 +1,15 @@
+#article-dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#article-dashboard > div {
+  flex: 0 1 700px !important;
+}
+#article-dashboard .mat-progress-spinner {
+  margin: 54px 0;
+}
+
+::ng-deep #article-dashboard #article {
+  border: none;
+}

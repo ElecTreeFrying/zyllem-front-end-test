@@ -1,0 +1,15 @@
+<div id="article-dashboard">
+
+  <ng-container *ngIf="article;else loading">
+    <div *ngIf="article?.type === 'NORMAL'">
+      <normal-article [article]="article" [complete]="true"></normal-article>
+    </div>
+    <div *ngIf="article?.type === 'FEATURED'">
+      <featured-article [article]="article" [complete]="true"></featured-article>
+    </div>
+  </ng-container>
+  <ng-template #loading>
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </ng-template>
+
+</div>
