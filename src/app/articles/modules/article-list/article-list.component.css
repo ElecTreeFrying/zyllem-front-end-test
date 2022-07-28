@@ -1,0 +1,39 @@
+#article-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#article-list .mat-progress-spinner {
+  margin: 54px 0;
+}
+
+::ng-deep #article-list .articles {
+  flex: 0 1 500px !important;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+::ng-deep #article-list .articles #article {
+  display: none;
+  user-select: none;
+}
+::ng-deep #article-list .articles.loaded #article {
+  display: block;
+}
+::ng-deep #article-list #article {
+  border-radius: 8px;
+  margin: 16px 0;
+  transform: scale(1);
+  border: 1px solid black;
+  transition: all 0.15s;
+  width: 431px;
+}
+::ng-deep #article-list #article:hover {
+  cursor: pointer;
+  transform: scale(1.01);
+  border: 2px solid black;
+  transition: all 0.15s;
+}
+::ng-deep #article-list #article h1 {
+  margin-top: 0;
+}
